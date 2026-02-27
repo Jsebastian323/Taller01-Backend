@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Taller Backend — PokéAPI Explorer</title>
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Courier New", monospace;
+      background: #0f0f1a;
+      color: #d0d0e8;
+      padding: 1.5rem;
+    }
+
+    h1 {
+      color: #f8c12e;
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+    }
+
+    /* ── Controles ─────────────────────────────────────────── */
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+
+    label {
+      color: #9090b8;
+      font-size: 0.9rem;
+    }
+
+    input[type="number"] {
+      width: 90px;
+      padding: 0.35rem 0.5rem;
+      border: 1px solid #444;
+      border-radius: 4px;
+      background: #1e1e36;
+      color: #fff;
+      font-family: inherit;
+    }
+
+    button {
+      padding: 0.45rem 1.2rem;
+      background: #f8c12e;
+      color: #0f0f1a;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: opacity 0.2s;
+    }
+
+    button:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    /* ── Estado ────────────────────────────────────────────── */
+    #status {
+      font-size: 0.85rem;
+      color: #82aaff;
+      font-style: italic;
+      min-height: 1.3em;
+      margin-bottom: 0.5rem;
+    }
+
+    /* ── Área de resultados ────────────────────────────────── */
+    #output {
+      background: #080812;
+      border: 1px solid #2a2a4a;
+      border-radius: 6px;
+      padding: 1rem 1.2rem;
+      white-space: pre-wrap;
+      word-break: break-word;
+      max-height: 75vh;
+      overflow-y: auto;
+      line-height: 1.65;
+      font-size: 0.88rem;
+      color: #c8c8e0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Taller Backend — PokéAPI Explorer</h1>
+
+  <div class="controls">
+    <label for="limitInput">Límite de lista:</label>
+    <input type="number" id="limitInput" value="200" min="20" max="1000" />
+
+    <label for="detailInput">Detalles en paralelo:</label>
+    <input type="number" id="detailInput" value="20" min="5" max="50" />
+
+    <button id="loadBtn">Cargar</button>
+  </div>
+
+  <p id="status">Pulsa "Cargar" para comenzar.</p>
+  <pre id="output"></pre>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
